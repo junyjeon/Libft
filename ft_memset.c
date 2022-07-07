@@ -6,11 +6,9 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 17:53:31 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/06 18:50:08 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/07/06 19:27:55 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <string.h>
 
 void    *ft_memset(void *dst0, int val, size_t length)
 {
