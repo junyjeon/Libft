@@ -1,22 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/06 17:49:00 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/08 23:10:45 by junyojeo         ###   ########seoul.kr  */
+/*   Created: 2022/07/08 18:18:32 by junyojeo          #+#    #+#             */
+/*   Updated: 2022/07/08 18:18:32 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t  ft_strlen(const char *str)
+void ft_lstadd_front(t_list **lst, t_list *new)
 {
-    char *s;
-
-    s = str;
-    while (*(s++))
-        return (ws - str);
+	new->next = *lst;
 }

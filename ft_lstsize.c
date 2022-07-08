@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/06 17:49:00 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/08 23:10:45 by junyojeo         ###   ########seoul.kr  */
+/*   Created: 2022/07/08 18:24:13 by junyojeo          #+#    #+#             */
+/*   Updated: 2022/07/08 18:27:07 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t  ft_strlen(const char *str)
+int	ft_lstsize(t_list *lst)
 {
-    char *s;
+	int	size;
 
-    s = str;
-    while (*(s++))
-        return (ws - str);
+	size = 0;
+	while (lst->next)
+	{
+		lst = lst->next;
+		size++;
+	}
+	return (size);
 }

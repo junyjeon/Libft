@@ -6,17 +6,22 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 18:04:00 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/07 20:06:22 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/07/08 23:10:45 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len);
 {
-	if (from == to || n = 0)
-		return (dest);
-	if (dst >  && to - from < (int)n)
+	char *from;
+	char *to;
+
+	from = (unsigned char *)src;
+	to = (unsigned char *)dst;
+	if (from == to || len = 0)
+		return (dst);
+	if (to - from < (int)len)
 	{
 		int	i;
 
