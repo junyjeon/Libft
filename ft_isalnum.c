@@ -6,11 +6,15 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 17:53:48 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/06 17:53:49 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/07/07 19:53:14 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalnum(int c)
+int	ft_isalnum(int c)
 {
-    return (('a' <= c && c <= 'z' || 'A' <= c && c <= 'Z' || 'A' <= c && c <= 'Z' ? 1 : 0));
+	if (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z') \
+	|| ('A' <= c && c <= 'Z'))
+    	return (1);
+	else
+		return (0);
 }

@@ -6,11 +6,14 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 17:53:35 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/06 17:53:36 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/07/07 19:54:20 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isprint(int c)
+int	ft_isprint(int c)
 {
-    return ((32 <= c && c <= 126 ? 1 : 0));
+	if (32 <= c && c <= 126)
+ 		return (1);
+	else
+		return (0);
 }
