@@ -6,21 +6,35 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 18:04:06 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/07 19:57:18 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/07/09 04:16:25 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dst, char *src, size_t maxlen)
-{
-	unsigned int	srclen;
+#include "libft.h"
 
-	srclen = strlen(src);
-	if (srclen + 1 < maxlen)
-		ft_memcpy(dst, src, srclen + 1);
-	else if (maxlen != 0)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	srclen;
+	size_t	i;
+
+	srclen = ft_strlen(src);
+	i = 0;
+	if (srclen + 1 < dstsize)
 	{
-		ft_memcpy(dst, src, maxlen - 1);
-		dst[maxlen - 1] = '\0';
+		while (i < srclen + 1)
+		{
+			dst[i] = src[i];
+			++i;
+		}
+	}
+	else if (dstsize != 0)
+	{
+		while (i + 1 < dstsize)
+		{
+			dst[i] = src[i];
+			++i;
+		}
+		dst[dstsize - 1] = '\0';
 	}
 	return (srclen);
 }

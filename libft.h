@@ -6,18 +6,18 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 19:24:18 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/06 19:28:01 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/07/09 03:41:24 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-​
+
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
-​
-typedef struct		s_list
+
+typedef struct	s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -25,7 +25,6 @@ typedef struct		s_list
 void		*ft_memset(void *s, int c, size_t n);
 void		ft_bzero(void *s, size_t n);
 void		*ft_memcpy(void *dest, const void *src, size_t n);
-void		*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void		*ft_memmove(void *dest, const void *src, size_t n);
 void		*ft_memchr(const void *s, int c, size_t n);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
@@ -66,5 +65,5 @@ t_list		*ft_lstlast(t_list *lst);
 int			ft_lstsize(t_list *lst);
 void		ft_lstadd_front(t_list **alst, t_list *new);
 t_list		*ft_lstnew(void *content);
-​
+
 #endif

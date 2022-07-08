@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:13:27 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/08 18:14:37 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/07/08 23:36:39 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list	element;
+	t_list	*element;
 
-	element = (void *)malloc(sizeof(void *));
-	element.content = content;
-	element.next = NULL;
-	return (&element);
+	element = (t_list *)malloc(sizeof(t_list));
+	if (!element)
+		return (0);
+	element->content = content;
+	element->next = NULL;
+	return (element);
 }

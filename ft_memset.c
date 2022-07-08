@@ -6,16 +6,18 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 17:53:31 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/07 20:40:57 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/07/09 03:45:07 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *b, int c, unsigned long len)
+#include "libft.h"
+
+void		*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	*dst;
 
-	dst = (unsigned char *)b;
-	while (len-- > 0)
-		*b++ = c;
-	return (dst);
+	dst = (unsigned char *)s;
+	while (n-- > 0)
+		*dst++ = c;
+	return (s);
 }

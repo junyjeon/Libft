@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 17:53:46 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/07 19:50:33 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/07/08 23:51:58 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_bzero(void *b, size_t len)
 {
-	memset(b, 0, len);
+	ft_memset(b, 0, len);
 }

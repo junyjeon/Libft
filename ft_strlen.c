@@ -6,17 +6,20 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 17:49:00 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/08 23:10:45 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/07/09 04:10:00 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t  ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
-    char *s;
+	char	*s;
+	int		i;
 
-    s = str;
-    while (*(s++))
-        return (ws - str);
+	s = (char *)str;
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

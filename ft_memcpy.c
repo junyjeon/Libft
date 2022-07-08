@@ -6,16 +6,20 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 17:53:24 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/07 20:10:41 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/07/09 03:47:36 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
-{
-	char	*dst;
+#include "libft.h"
 
-	dest = dst;
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	char	*s;
+	char	*d;
+
+	s = (char *)src;
+	d = (char *)dest;
 	while (n-- > 0)
-		*dest++ = *src++;
-	return (dst);
+		*d++ = *s++;
+	return (dest);
 }
