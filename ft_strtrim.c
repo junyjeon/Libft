@@ -1,55 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   fft_strtrim.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/15 21:48:13 by marvin            #+#    #+#             */
-/*   Updated: 2022/07/15 21:48:13 by marvin           ###   ########.fr       */
+/*   Created: 2022/07/16 00:07:06 by marvin            #+#    #+#             */
+/*   Updated: 2022/07/16 00:07:06 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	wordcnt(char *s, char c, char **res)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	cnt;
 	size_t	i;
 	size_t	j;
+	char	*ptr;
 
-	cnt = 0;
+	if (!s1 || !set)
+		return (0);
 	i = 0;
-	while (s[i])
-	{
-		if (s[i] != c)
-		{
-			j = 0;
-			while (s[i] && s[i] != c)
-			{
-				j++;
-				i++;
-			}
-			res[cnt] = ft_strdup(s, i, j);
-			cnt++;
-		}
-		else
-			i++;
-	}
-	return (cnt);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	size_t	i;
-	size_t	j;
-	char	*str;
-	char	**res;
-
-	if(!s)
+	while (s1[i] && ft_strchr(set, s1[i]))
+		i++;
+	j = ft_strlen(s1);
+	while ((i < j - 1) && s1[j - i] && ft_strchr(set, s1[j - 1]))
+		j--;
+	ptr = (char *)malloc(sizeof(char *) * (j - i + 1));
+	if (!ptr)
 		return (0);
-	res = (char**)malloc(sizeof(char *) * wordcnt(s, c, res));
-	if (!res)
-		return (0);
-	return (res);
+	ft_strlcpy(ptr, &s1[i], j - i + 1);
+	eturn(ptr);
 }

@@ -14,13 +14,18 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int		tmp;
-
-	while (*s)
+	char	*res;
+	size_t	i;
+	
+	res = NULL;
+	i = 0;
+	while (s[i])
 	{
-		if (*s == c)
-			tmp = *s;
-		s++;
+		if (s[i] == (unsigned char)c)
+			res = (char *)&s[i];
+		i++;
 	}
+	if ((unsigned char)c == s[i])
+		res = (char *)&s[i];
 	return (NULL);
 }
