@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 01:18:35 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/12 21:06:40 by junyojeo         ###   ########seoul.kr  */
+/*   Created: 2022/07/16 02:24:42 by marvin            #+#    #+#             */
+/*   Updated: 2022/07/18 21:46:50 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t			i;
-	unsigned char	*x1;
-	unsigned char	*x2;
-
-	x1 = (unsigned char *)s1;
-	x2 = (unsigned char *)s2;
-	i = 0;
-	while (x1[i] && 0 < n--)
-	{
-		if (x1[i] != x2[i])
-			return (x1[i] - x2[i]);
-		i++;
-	}
-	if (*x1 == '\0' && i < n)
-		return (x1[i] - x2[i]);
-	return (0);
+	if (n == 0)
+		return ;
+	ft_putnbr_fd(n / 10, fd);
+	write((unsigned int)fd, &"0123456789"[n % 10], 1);
 }

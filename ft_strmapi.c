@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 01:18:35 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/12 21:06:40 by junyojeo         ###   ########seoul.kr  */
+/*   Created: 2022/07/16 02:04:28 by marvin            #+#    #+#             */
+/*   Updated: 2022/07/18 21:46:41 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t			i;
-	unsigned char	*x1;
-	unsigned char	*x2;
+	unsigned int	len;
+	unsigned int	i;
+	char			*str;
 
-	x1 = (unsigned char *)s1;
-	x2 = (unsigned char *)s2;
+	len = ft_strlen(s);
+	str = (char *)malloc(sizeof(char *) * len + 1);
+	if (!str)
+		return (0);
 	i = 0;
-	while (x1[i] && 0 < n--)
+	while (str[i])
 	{
-		if (x1[i] != x2[i])
-			return (x1[i] - x2[i]);
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	if (*x1 == '\0' && i < n)
-		return (x1[i] - x2[i]);
-	return (0);
+	str[i] = '\0';
+	return (str);
 }

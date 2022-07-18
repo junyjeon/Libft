@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 01:18:35 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/12 21:06:40 by junyojeo         ###   ########seoul.kr  */
+/*   Created: 2022/07/09 04:41:52 by junyojeo          #+#    #+#             */
+/*   Updated: 2022/07/11 16:48:27 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_atoi(const char *str)
 {
-	size_t			i;
-	unsigned char	*x1;
-	unsigned char	*x2;
+	int	sign;
+	int	res;
+	int	i;
 
-	x1 = (unsigned char *)s1;
-	x2 = (unsigned char *)s2;
+	if (*str == '\0')
+		return (0);
+	sign = 1;
+	res = 0;
 	i = 0;
-	while (x1[i] && 0 < n--)
+	while ((9 <= *str && *str <= 13) || *str == 32)
+		str++;
+	while (*str == '+' || *str == '-')
 	{
-		if (x1[i] != x2[i])
-			return (x1[i] - x2[i]);
-		i++;
+		if (*str == '-')
+			sign *= -1;
+		str++;
 	}
-	if (*x1 == '\0' && i < n)
-		return (x1[i] - x2[i]);
-	return (0);
+	while ('0' <= *str && *str <= '9')
+	{
+		res = res * 10 + (*str - '0');
+		str++;
+	}
+	return (res * sign);
 }

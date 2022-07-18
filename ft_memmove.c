@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 18:04:00 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/09 03:55:18 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/07/12 20:43:14 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,17 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	*from;
-	unsigned char	*to;
+	unsigned char	*s;
+	unsigned char	*d;
 
-	from = (unsigned char *)src;
-	to = (unsigned char *)dst;
-	ft_memcpy(to, from, len);
+	if (dst == src)
+		return (dst);
+	s = (unsigned char *)src;
+	d = (unsigned char *)dst;
+	if (dst < src)
+		ft_memcpy(dst, src, len);
+	else
+		while (len--)
+			d[len] = s[len];
 	return (dst);
 }

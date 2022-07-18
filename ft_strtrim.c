@@ -1,33 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 01:18:35 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/12 21:06:40 by junyojeo         ###   ########seoul.kr  */
+/*   Created: 2022/07/09 05:03:26 by junyojeo          #+#    #+#             */
+/*   Updated: 2022/07/18 21:14:36 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t			i;
-	unsigned char	*x1;
-	unsigned char	*x2;
+	char	*str;
+	int		start;
+	int		i;
+	int		j;
 
-	x1 = (unsigned char *)s1;
-	x2 = (unsigned char *)s2;
+	if (!s1 || !set)
+		return (0);
+	str = (char *)malloc(sizeof(char *) + ft_strlen(s1));
+	if (!str)
+		return (0);
 	i = 0;
-	while (x1[i] && 0 < n--)
+	while (s1[i])
 	{
-		if (x1[i] != x2[i])
-			return (x1[i] - x2[i]);
+		j = 0;
+		while (set[j])
+		{
+			if (s1[i] != set[j])
+			{
+				start = i;
+				break ;
+			}
+			j++;
+		}
+		if (s1[i] != set[j])
+			break ;
 		i++;
 	}
-	if (*x1 == '\0' && i < n)
-		return (x1[i] - x2[i]);
+	while (s1[i])
+	{
+		while (*set)
+		{
+			if (*s1 == *set)
+				break ;
+			set++;
+		}
+		i++;
+	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 03:00:27 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/09 03:54:51 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/07/12 20:59:06 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t	i;
-	char	*src;
+	size_t			i;
+	unsigned char	*src;
 
-	src = (char *)s;
+	src = (unsigned char *)s;
 	i = 0;
-	while (*src && i < n)
+	while (i < n)
 	{
-		if (*src == c)
-			return ((void *)i);
-		src++;
+		if (src[i] == (unsigned char)c)
+			return (&src[i]);
+		i++;
 	}
 	return (NULL);
 }
