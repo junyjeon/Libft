@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 04:49:03 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/09 19:04:24 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/07/22 00:20:25 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,11 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	int		i;
-	char	*cal;
-	
-	cal = 0;
-	while (count--)
-	{
-		i = 0;
-		while (size--)
-		{
-			cal[i] = 0;
-			i++;
-		}
-	}
-	return ((void *)cal);
+	void	*buf;
+
+	buf = (void *)malloc(size * count);
+	if (!buf)
+		return (0);
+	ft_bzero(buf, size * count);
+	return (buf);
 }
