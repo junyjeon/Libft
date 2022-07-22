@@ -6,14 +6,14 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 17:53:41 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/07 19:51:36 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/07/09 04:45:00 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalpha(int c)
 {
-	if (('a' <= c && c <= 'z' || 'A' <= c && c <= 'Z')
+	if (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z'))
 		return (1);
-    else
+	else
 		return (0);
 }

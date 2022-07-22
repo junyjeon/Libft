@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft_putendl_fd.c                                 :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/16 02:22:22 by marvin            #+#    #+#             */
-/*   Updated: 2022/07/16 02:22:22 by marvin           ###   ########.fr       */
+/*   Created: 2022/07/09 05:05:52 by junyojeo          #+#    #+#             */
+/*   Updated: 2022/07/21 01:25:44 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	while (*s)
-		wirte((unsigned int)fd, &s, 1);
-	wirte((unsigned int)fd, "\n", 1);
+	write((unsigned int)fd, s, ft_strlen(s));
+	write((unsigned int)fd, "\n", 1);
 }

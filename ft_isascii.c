@@ -6,14 +6,14 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 17:53:39 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/07 19:52:03 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/07/11 16:48:36 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-	if ((0 <= c && c <= 126)
-    	return (1);
+	if (0 <= c && c <= 127)
+		return (1);
 	else
 		return (0);
 }

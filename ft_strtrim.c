@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fft_strtrim.c                                      :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/16 00:07:06 by marvin            #+#    #+#             */
-/*   Updated: 2022/07/16 00:07:06 by marvin           ###   ########.fr       */
+/*   Created: 2022/07/09 05:03:26 by junyojeo          #+#    #+#             */
+/*   Updated: 2022/07/18 21:14:36 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,42 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	i;
-	size_t	j;
-	char	*ptr;
+	char	*str;
+	int		start;
+	int		i;
+	int		j;
 
 	if (!s1 || !set)
 		return (0);
-	i = 0;
-	while (s1[i] && ft_strchr(set, s1[i]))
-		i++;
-	j = ft_strlen(s1);
-	while (s1[j - i] && ft_strchr(set, s1[j - 1]))
-		j--;
-	ptr = (char *)malloc(sizeof(char *) * (j - i + 1));
-	if (!ptr)
+	str = (char *)malloc(sizeof(char *) + ft_strlen(s1));
+	if (!str)
 		return (0);
-	ft_strlcpy(ptr, &s1[i], j - i + 1);
-	eturn(ptr);
+	i = 0;
+	while (s1[i])
+	{
+		j = 0;
+		while (set[j])
+		{
+			if (s1[i] != set[j])
+			{
+				start = i;
+				break ;
+			}
+			j++;
+		}
+		if (s1[i] != set[j])
+			break ;
+		i++;
+	}
+	while (s1[i])
+	{
+		while (*set)
+		{
+			if (*s1 == *set)
+				break ;
+			set++;
+		}
+		i++;
+	}
+	return (0);
 }
