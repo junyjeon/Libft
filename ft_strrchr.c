@@ -27,5 +27,5 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	if ((unsigned char)c == s[i])
 		res = (char *)&s[i];
-	return (NULL);
+	return (res);
 }
