@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 17:29:46 by junyojeo          #+#    #+#              #
-#    Updated: 2022/07/22 01:11:00 by junyojeo         ###   ########seoul.kr   #
+#    Updated: 2022/07/26 18:56:35 by junyojeo         ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,9 +44,7 @@ clean:
 fclean: clean
 	rm -f ${NAME}
 
-re:		
-	@make fclean
-	@make all
+re:	fclean all
 
 bonus:
 	@make WITH_BONUS=1 all	
