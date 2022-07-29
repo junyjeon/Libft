@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 17:29:46 by junyojeo          #+#    #+#              #
-#    Updated: 2022/07/26 18:56:35 by junyojeo         ###   ########seoul.kr   #
+#    Updated: 2022/07/29 17:34:05 by junyojeo         ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ BONUS_SRC	=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c\
 				ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 OBJ			=	${SRC:.c=.o}
 BONUS_OBJ	= 	${BONUS_SRC:.c=.o}
-CC			=	cc
+CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror
 
 ifdef	WITH_BONUS
@@ -35,8 +35,9 @@ all: ${NAME}
 ${NAME}: ${OBJECTS}
 	ar rc ${NAME} ${OBJ}
 
-*.o:
-	$(CC) ${CFLAGS} -c $< -o $@//$@
+%.o: %.c
+	# $(CC) ${CFLAGS} -c $< -o $@//$@
+	$(CC) $(CFLGAS) -c $<
 
 clean:
 	rm -f ${OBJ} ${BONUS_OBJ} 
@@ -48,5 +49,10 @@ re:	fclean all
 
 bonus:
 	@make WITH_BONUS=1 all	
+
+main: main.o
+	${CC} ${CFLAGS} -g3 $^
+
+test: $(NAME) main
 
 .PHONY : all .c.o clean fclean re bonus

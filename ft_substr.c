@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 05:02:18 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/21 22:30:26 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/07/29 15:01:53 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	size_t	i;
 	size_t	s_len;
 	char	*str;
-	char	*src;
 
-	if (!s || len == 0)
-		return (ft_strdup(""));
 	s_len = ft_strlen(s);
 	if (start >= s_len)
 		return (ft_strdup(""));
-	src = (char *)s;
-	str = (char *)malloc(sizeof(char) * (len + 1));
+	i = 0;
+	while (s[start + i] && i < len)
+		i++;
+	str = (char *)malloc(sizeof(char) * (i + 1));
 	if (!str)
-		return (NULL);
-	while (len--)
+		return (0);
+	i = 0;
+	while (len-- && s[start + i])
 	{
-		*str = src[start];
-		start++;
-		str++;
+		str[i] = s[start + i];
+		i++;
 	}
-	*str = 0;
+	str[i] = '\0';
 	return (str);
 }

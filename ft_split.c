@@ -6,36 +6,50 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 21:48:13 by marvin            #+#    #+#             */
-/*   Updated: 2022/07/26 18:58:42 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/07/29 15:35:44 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-static int	word_len(char *str, char c)
+static int	word_len(char const *s, char c, size_t i)
+{
+	size_t	cnt;
+
+	cnt = 0;
+	while (s[i++] != c)
+		cnt++;
+	return (cnt);
+}
+
+void	ft_free(char **res)
 {
 	size_t	i;
 
 	i = 0;
-	while (str[i] != c)
-		i++;
-	return (i);
+	while (res[i])
+		free(res[i]);
+	free(res);
 }
 
-static char	**ft_dupdup(char *str, char c, char **res)
+static char	**ft_division(char const *s, char c, char **res)
 {
 	size_t	i;
 	size_t	j;
 
 	j = 0;
 	i = 0;
-	while (str[i])
+	while (s[i])
 	{
-		if (str[i] != c)
+		if (s[i] != c)
 		{
-			ft_substr(res[j], i, word_len(&str[i], c));
-			i = i + word_len(&str[i], c);
+			if (s[i] == '\0')
+			{
+				ft_free(res);
+				return (0);
+			}
+			res[j] = ft_substr(s, i, word_len(s, c, i));
+			i = i + word_len(s, c, i);
 			j++;
 		}
 		else
@@ -50,8 +64,6 @@ char	**ft_split(char const *s, char c)
 	size_t	word_cnt;
 	char	**res;
 
-	if (!s)
-		return (0);
 	word_cnt = 0;
 	i = 0;
 	while (s[i])
@@ -63,8 +75,8 @@ char	**ft_split(char const *s, char c)
 	res = (char **)malloc(sizeof(char *) * (word_cnt + 1));
 	if (!res)
 		return (0);
-	ft_dupdup((char *) s, c, res);
-	res[word_cnt] = 0;
+	ft_division(s, c, res);
+	res[word_cnt] = NULL;
 	return (res);
 }
 

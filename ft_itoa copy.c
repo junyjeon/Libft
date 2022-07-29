@@ -1,54 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_itoa copy.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 01:07:30 by marvin            #+#    #+#             */
-/*   Updated: 2022/07/29 17:48:03 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/07/29 17:45:01 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_addnum(int n, char *str, int len)
+static char	*add_num(char *s, int n, int i)
 {
-	size_t	i;
-
-	i = 1;
-	str[len] = '\0';
-	if (n < 0)
-	{
-		str[0] = '-';
-		if (n == -2147483648)
-		{
-			str[len - 1] = '8';
-			len--;
-			n = 214748364;
-		}
-		else if (n < 0)
-			n *= -1;
-	}
-	while (len--)
-	{
-		str[len - 1] = n % 10 + '0';
-		n /= 10;
-	}
+	if (n == 0)
+		return (s);
+	add_num(s, n / 10, i++);
+	s[i] = n % 10 + '0';
 }
 
-static int	ft_get_n_len(int n)
+static char	*add_arr(char *s, int n, int len)
+{
+	if (n == 0)
+		s[0] = 0;
+	while (len--)
+	{
+		s[len - 1] = n % 10 + '0';
+		n /= 10;
+	}
+	return (s);
+}
+
+static int	ft_num_len(int n)
 {
 	int	len;
 
 	len = 0;
-	if (n < 0)
-	{
-		if (n == -2147473648)
-			return (10);
+	if (n == -2147483648)
+		return (10);
+	else if (n < 0)
 		n *= -1;
-		len++;
-	}
+	else if (n == 0)
+		return (1);
 	while (n)
 	{
 		n /= 10;
@@ -57,18 +51,31 @@ static int	ft_get_n_len(int n)
 	return (len);
 }
 
-char	*itoa(int n)
+char	*ft_itoa(int n)
 {
-	size_t	i;
-	size_t	n_len;
-	char	*str;
+	size_t	len;
+	size_t	sign;
+	char	*s;
 
-	if (n == 0)
-		return (ft_strdup("0"));
-	n_len = ft_get_n_len(n);
-	str = (char *)malloc(n_len + 1);
-	if (!str)
-		return (NULL);
-	ft_addnum(n, str, n_len);
-	return (str);
+	len = ft_num_len(n);
+	if (n < 0)
+	{
+		sign = 1;
+		len++;
+	}
+	s = (char *)malloc(sizeof(char) * len + 1);
+	if (!s)
+		return (0);
+	if (n < 0)
+		s[0] = '-';
+	if (n == -2147483648)
+	{
+		s[10] = '8';
+		n = 214748364;
+	}
+	else if (n < 0)
+		n *= -1;
+	s = add_arr(&s[sign], n, len);
+	s[len] = '\0';
+	return (s);
 }
