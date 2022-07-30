@@ -10,46 +10,46 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+// #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
-{
-	char	*str;
-	int		start;
-	int		i;
-	int		j;
+// char	*ft_strtrim(char const *s1, char const *set)
+// {
+// 	char	*str;
+// 	int		start;
+// 	int		i;
+// 	int		j;
 
-	if (!s1 || !set)
-		return (0);
-	str = (char *)malloc(sizeof(char *) + ft_strlen(s1));
-	if (!str)
-		return (0);
-	i = 0;
-	while (s1[i])
-	{
-		j = 0;
-		while (set[j])
-		{
-			if (s1[i] != set[j])
-			{
-				start = i;
-				break ;
-			}
-			j++;
-		}
-		if (s1[i] != set[j])
-			break ;
-		i++;
-	}
-	while (s1[i])
-	{
-		while (*set)
-		{
-			if (*s1 == *set)
-				break ;
-			set++;
-		}
-		i++;
-	}
-	return (0);
-}
+// 	if (!s1 || !set)
+// 		return (0);
+// 	str = (char *)malloc(sizeof(char *) + ft_strlen(s1));
+// 	if (!str)
+// 		return (0);
+// 	i = 0;
+// 	while (s1[i])
+// 	{
+// 		j = 0;
+// 		while (set[j])
+// 		{
+// 			if (s1[i] != set[j])
+// 			{
+// 				start = i;
+// 				break ;
+// 			}
+// 			j++;
+// 		}
+// 		if (s1[i] != set[j])
+// 			break ;
+// 		i++;
+// 	}
+// 	while (s1[i])
+// 	{
+// 		while (*set)
+// 		{
+// 			if (*s1 == *set)
+// 				break ;
+// 			set++;
+// 		}
+// 		i++;
+// 	}
+// 	return (0);
+// }

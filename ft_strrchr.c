@@ -23,13 +23,7 @@ char	*ft_strrchr(const char *s, int c)
 			tmp = (char *)s;
 		s++;
 	}
-<<<<<<< HEAD
-	if ((unsigned char)c == s[i])
-		res = (char *)&s[i];
-	return (res);
-=======
 	if (*s == c)
 		tmp = (char *)s;
 	return (tmp);
->>>>>>> 679922673306e283c855ca0dfc342a15dd481923
 }

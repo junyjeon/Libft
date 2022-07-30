@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/06 17:53:31 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/09 04:27:28 by junyojeo         ###   ########seoul.kr  */
+/*   Created: 2022/07/30 17:44:50 by junyojeo          #+#    #+#             */
+/*   Updated: 2022/07/30 17:44:50 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
 
-void		*ft_memset(void *s, int c, size_t n)
-{
-	unsigned char	*dst;
+// void	get_next_line_utils()
+// {
 
-	dst = (unsigned char *)s;
-	while (n-- > 0)
-		*dst++ = (unsigned char *)c;
-	return (s);
-}
+// }

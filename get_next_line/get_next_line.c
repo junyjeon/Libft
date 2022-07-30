@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/06 17:53:31 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/09 04:27:28 by junyojeo         ###   ########seoul.kr  */
+/*   Created: 2022/07/30 17:43:40 by junyojeo          #+#    #+#             */
+/*   Updated: 2022/07/30 17:43:40 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
 
-void		*ft_memset(void *s, int c, size_t n)
+char	*get_next_line(int fd)
 {
-	unsigned char	*dst;
+	static size_t	line_cnt;
+	size_t	read_size;
+	size_t	if_i;
+	char	buf[BUFFER_SIZE];
+	char	c;
 
-	dst = (unsigned char *)s;
-	while (n-- > 0)
-		*dst++ = (unsigned char *)c;
-	return (s);
+	fd = open("test.txt", "r");
+	read_size = read(fd, buf, BUFFER_SIZE);
+	while (read_size)
+	{
+		read_size = read(fd, buf, BUFFER_SIZE);
+		buf[read_size] = '\0';
+		puts(buf);
+		line_cnt++;
+	}
+	close(fd);
+	return (buf);
 }
