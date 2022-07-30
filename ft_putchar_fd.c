@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 02:15:15 by marvin            #+#    #+#             */
-/*   Updated: 2022/07/18 21:42:28 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/07/29 17:26:53 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	write((unsigned int)fd, &c, 1);
+	write(fd, &c, 1);
 }
