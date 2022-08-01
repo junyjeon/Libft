@@ -12,37 +12,50 @@
 
 #include "get_next_line.h"
 
+char	**ft_free(char **all)
+{
+	size_t	i;
+
+	i = 0;
+	while (all[i])
+	{
+		free(all[i]);
+		all[i] = 0;
+	}
+	return (all);
+}
+
 char	*get_next_line(int fd)
 {
 	size_t		i;
 	size_t		char_cnt;
 	size_t		read_size;
-	static char	*backup[OPEN_MAX + 1];
+	static char	*all[OPEN_MAX + 1];
 	char		buf[BUFFER_SIZE];
 	char		**line;
 	char		*tmp;
 
 	// if (read_size < 0)
-	// 	return (ft_free(&backup[fd]));
+	// 	return (ft_free(&all[fd]));
 	read_size = read(fd, buf, BUFFER_SIZE);
 	while (0 < read_size)
 	{
 		read_size = read(fd, buf, BUFFER_SIZE);
 		buf[read_size] = '\0';
-		backup[fd] = ft_strjoin(backup[fd], buf);
+		all[fd] = ft_strjoin(all[fd], buf);
 		char_cnt = 0;
 		i = 0;
-		while (backup[fd][char_cnt])
+		while (all[fd][char_cnt])
 		{
-			if (backup[fd][char_cnt] == '\n')
+			if (all[fd][char_cnt] == '\n')
 			{
-				backup[fd][char_cnt] = '\0';
-				line[i] = ft_strdup(backup[fd]);
+				all[fd][char_cnt] = '\0';
+				line[i] = ft_strdup(all[fd]);
 				if (!line[i])
-					return (ft_free(backup));
-				tmp = ft_strdup(backup[fd]);
-				free(backup[fd]);
-				backup[fd] = tmp;
+					return (ft_free(all));
+				tmp = ft_strdup(all[fd]);
+				free(all[fd]);
+				all[fd] = tmp;
 				break ;
 			}
 			char_cnt++;
