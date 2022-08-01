@@ -14,20 +14,39 @@
 
 char	*get_next_line(int fd)
 {
-	static size_t	line_cnt;
-	size_t	read_size;
-	size_t	if_i;
-	char	buf[BUFFER_SIZE];
-	char	c;
+	size_t		i;
+	size_t		char_cnt;
+	size_t		read_size;
+	static char	*backup[OPEN_MAX + 1];
+	char		buf[BUFFER_SIZE];
+	char		**line;
+	char		*tmp;
 
-	fd = open("test.txt", "r");
+	// if (read_size < 0)
+	// 	return (ft_free(&backup[fd]));
 	read_size = read(fd, buf, BUFFER_SIZE);
-	while (read_size)
+	while (0 < read_size)
 	{
 		read_size = read(fd, buf, BUFFER_SIZE);
 		buf[read_size] = '\0';
-		puts(buf);
-		line_cnt++;
+		backup[fd] = ft_strjoin(backup[fd], buf);
+		char_cnt = 0;
+		i = 0;
+		while (backup[fd][char_cnt])
+		{
+			if (backup[fd][char_cnt] == '\n')
+			{
+				backup[fd][char_cnt] = '\0';
+				line[i] = ft_strdup(backup[fd]);
+				if (!line[i])
+					return (ft_free(backup));
+				tmp = ft_strdup(backup[fd]);
+				free(backup[fd]);
+				backup[fd] = tmp;
+				break ;
+			}
+			char_cnt++;
+		}
 	}
 	close(fd);
 	return (buf);
