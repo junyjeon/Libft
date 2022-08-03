@@ -1,7 +1,6 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/junyojeo/Desktop/libft'
 cc  -c ft_isalpha.c
- 
 cc  -c ft_isdigit.c
 cc  -c ft_isalnum.c
 cc  -c ft_isascii.c
@@ -16,9 +15,7 @@ cc  -c ft_strlcat.c
 cc  -c ft_strncmp.c
 cc  -c ft_toupper.c
 cc  -c ft_tolower.c
- 
 cc  -c ft_strchr.c
- 
 cc  -c ft_strrchr.c
 cc  -c ft_memchr.c
 cc  -c ft_memcmp.c
@@ -27,7 +24,6 @@ cc  -c ft_atoi.c
 cc  -c ft_calloc.c
 cc  -c ft_strdup.c
 cc  -c ft_substr.c
- 
 cc  -c ft_strjoin.c
 cc  -c ft_strtrim.c
 cc  -c ft_split.c
@@ -35,7 +31,6 @@ cc  -c ft_itoa.c
 cc  -c ft_strmapi.c
 cc  -c ft_striteri.c
 cc  -c ft_putchar_fd.c
- 
 cc  -c ft_putstr_fd.c
 cc  -c ft_putendl_fd.c
 cc  -c ft_putnbr_fd.c
