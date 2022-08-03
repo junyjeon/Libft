@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 21:48:13 by marvin            #+#    #+#             */
-/*   Updated: 2022/07/29 15:35:44 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/08/03 16:15:59 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,17 @@ static int	word_len(char const *s, char c, size_t i)
 	size_t	cnt;
 
 	cnt = 0;
-	while (s[i++] != c)
+	while (s[i] != c)
+	{
+		if (!s[i])
+			break ;
 		cnt++;
+		i++;
+	}
 	return (cnt);
 }
 
-void	ft_free(char **res)
+static void	ft_free(char **res)
 {
 	size_t	i;
 
@@ -44,11 +49,13 @@ static char	**ft_division(char const *s, char c, char **res)
 		if (s[i] != c)
 		{
 			if (s[i] == '\0')
+				return (res);
+			res[j] = ft_substr(s, i, word_len(s, c, i));
+			if (!res[j])
 			{
 				ft_free(res);
 				return (0);
-			}
-			res[j] = ft_substr(s, i, word_len(s, c, i));
+			}	
 			i = i + word_len(s, c, i);
 			j++;
 		}
@@ -79,16 +86,3 @@ char	**ft_split(char const *s, char c)
 	res[word_cnt] = NULL;
 	return (res);
 }
-
-// int main(void) {
-// 	char *string = "      split       this for   me  !       "; // x
-// 	// char *string = "      split       this for   me  !       ";
-// 	char **expected = ((char*[6]){"split", "this", "for", "me", "!", ((void *)0)});
-// 	char **result = ft_split(string, ' ');
-// 	int i = 0;
-// 	while (result[i])
-// 	{
-// 		printf("i: %s\n", result[i]);
-// 		i++;
-// 	}
-// }

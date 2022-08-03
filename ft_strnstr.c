@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 04:29:15 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/26 18:51:59 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/08/03 15:26:57 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	if (!*needle)
 		return ((char *)haystack);
 	i = 0;
-	while (haystack[i] && len--)
+	while (i < len && haystack[i])
 	{
 		j = 0;
-		while (haystack[i] == needle[j] && i < len)
+		while (i + j < len && haystack[i + j] == needle[j])
 		{
 			j++;
 			if (needle[j] == '\0')

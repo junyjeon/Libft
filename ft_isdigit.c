@@ -6,14 +6,14 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 17:53:37 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/07 19:53:40 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/08/03 14:18:01 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isdigit(int c)
 {
 	if ('0' <= c && c <= '9')
-    	return (1);
+		return (1);
 	else
 		return (0);
 }

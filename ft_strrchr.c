@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 02:26:48 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/26 18:04:54 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/08/03 18:56:14 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ char	*ft_strrchr(const char *s, int c)
 {
 	char	*tmp;
 
-	tmp = NULL;
+	tmp = 0;
 	while (*s)
 	{
-		if (*s == c)
+		if (*s == (unsigned char)c)
 			tmp = (char *)s;
 		s++;
 	}
-	if (*s == c)
+	if (*s == (unsigned char)c)
 		tmp = (char *)s;
 	return (tmp);
 }

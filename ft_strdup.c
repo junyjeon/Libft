@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 05:00:43 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/26 18:08:34 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/08/03 16:07:22 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ char	*ft_strdup(const char *s1)
 
 	if (!(*s1))
 	{
-		dst = (char *)malloc(sizeof(char) * 1);
+		dst = (char *)malloc(1);
+		*dst = '\0';
 		return (dst);
 	}
 	s_len = ft_strlen(s1);

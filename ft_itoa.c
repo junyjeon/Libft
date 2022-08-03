@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 01:07:30 by marvin            #+#    #+#             */
-/*   Updated: 2022/07/29 17:48:03 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/08/03 16:10:30 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,20 @@ static void	ft_addnum(int n, char *str, int len)
 			len--;
 			n = 214748364;
 		}
-		else if (n < 0)
+		else
 			n *= -1;
 	}
-	while (len--)
+	else if (n == 0)
+		str[0] = '0';
+	while (len && n > 0)
 	{
 		str[len - 1] = n % 10 + '0';
 		n /= 10;
+		len--;
 	}
 }
 
-static int	ft_get_n_len(int n)
+static size_t	ft_get_n_len(int n)
 {
 	int	len;
 
@@ -49,6 +52,8 @@ static int	ft_get_n_len(int n)
 		n *= -1;
 		len++;
 	}
+	else if (n == 0)
+		return (1);
 	while (n)
 	{
 		n /= 10;
@@ -57,13 +62,12 @@ static int	ft_get_n_len(int n)
 	return (len);
 }
 
-char	*itoa(int n)
+char	*ft_itoa(int n)
 {
-	size_t	i;
 	size_t	n_len;
 	char	*str;
 
-	if (n == 0)
+	if (!n)
 		return (ft_strdup("0"));
 	n_len = ft_get_n_len(n);
 	str = (char *)malloc(n_len + 1);

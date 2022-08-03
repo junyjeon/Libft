@@ -6,19 +6,14 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 04:41:52 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/07/26 18:53:01 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/08/03 16:00:37 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(const char *str)
 {
 	long long	res;
-	int	sign;
-<<<<<<< HEAD
-	int	res;
-=======
-	int	i;
->>>>>>> 2635d02a154054708630fcaaacff2a33e5a6390e
+	int			sign;
 
 	if (*str == '\0')
 		return (0);
