@@ -1,8 +1,0 @@
-{
-	"files.associations": {
-		"libft.h": "c",
-		"stdio.h": "c",
-		"__locale": "c",
-		"bitset": "c"
-	}
-}
