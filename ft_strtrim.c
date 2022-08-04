@@ -6,12 +6,12 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 05:03:26 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/08/02 18:24:47 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/08/03 20:23:27 by junyojeo         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//
+
 static int	ft_find(char const c, char const *set)
 {
 	int	i;
