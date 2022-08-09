@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 17:29:46 by junyojeo          #+#    #+#              #
-#    Updated: 2022/08/03 12:58:59 by junyojeo         ###   ########seoul.kr   #
+#    Updated: 2022/08/07 20:27:11 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ else
 endif
 
 all:		$(NAME)
+	sleep 1
 
 $(NAME) : $(OBJECTS)
 	ar rc $@ $^	

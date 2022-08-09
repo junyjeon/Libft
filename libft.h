@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 19:24:18 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/08/03 13:20:33 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/08/08 21:47:49 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}t_list;
+}	t_list;
 
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
