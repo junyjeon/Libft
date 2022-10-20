@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 05:02:42 by junyojeo          #+#    #+#             */
-/*   Updated: 2022/08/03 19:11:47 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/10/20 21:50:06 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	while (s1[i])
 	{
-		str[i] = *(char *)&s1[i];
+		str[i] = s1[i];
 		i++;
 	}
 	j = 0;
 	while (s2[j])
 	{
-		str[i] = *(char *)&s2[j];
+		str[i] = s2[j];
 		i++;
 		j++;
 	}

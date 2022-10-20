@@ -6,7 +6,7 @@
 #    By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 17:29:46 by junyojeo          #+#    #+#              #
-#    Updated: 2022/08/07 20:27:11 by junyojeo         ###   ########.fr        #
+#    Updated: 2022/10/20 21:47:36 by junyojeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,35 +19,21 @@ SRC			=	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 				ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 BONUS_SRC	=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 				ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
-OBJ			=	${SRC:.c=.o}
-BONUS_OBJ	= 	${BONUS_SRC:.c=.o}
+OBJ			=	$(SRC:.c=.o)
+BONUS_OBJ	= 	$(BONUS_SRC:.c=.o)
 CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror
+AR			=	ar
+ARFLAGS		=	crs
 
-ifdef WITH_BONUS
-	OBJECTS = $(OBJ) $(BONUS_OBJ)
-else
-	OBJECTS = $(OBJ)
-endif
+all :		$(NAME)
 
-all:		$(NAME)
-	sleep 1
+$(NAME) : mandatory
 
-$(NAME) : $(OBJECTS)
-	ar rc $@ $^	
-
-%.o: %.c
-	$(CC) $(CFLGAS) -c $<
-
-bonus:
-	@make WITH_BONUS=1 all
-
-clean:
-	rm -f ${OBJ} ${BONUS_OBJ} 
-
-fclean: clean
-	rm -f ${NAME}
-
+mandatory : $(NAME)($(OBJ))
+bonus : $(NAME)($(OBJ) $(BONUS_OBJ))
+clean : ; rm -f $(OBJ) $(BONUS_OBJ) 
+fclean : clean ; rm -f $(NAME)
 re:	fclean all
 
 .PHONY : all .c.o clean fclean re bonus
