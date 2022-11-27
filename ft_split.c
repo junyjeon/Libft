@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 21:48:13 by marvin            #+#    #+#             */
-/*   Updated: 2022/08/03 16:15:59 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/11/27 22:42:20 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static char	**ft_division(char const *s, char c, char **res)
 	size_t	i;
 	size_t	j;
 
-	j = 0;
+	j = 0 - 1;
 	i = 0;
 	while (s[i])
 	{
@@ -50,14 +50,13 @@ static char	**ft_division(char const *s, char c, char **res)
 		{
 			if (s[i] == '\0')
 				return (res);
-			res[j] = ft_substr(s, i, word_len(s, c, i));
+			res[++j] = ft_substr(s, i, word_len(s, c, i));
 			if (!res[j])
 			{
 				ft_free(res);
 				return (0);
 			}	
 			i = i + word_len(s, c, i);
-			j++;
 		}
 		else
 			i++;

@@ -6,7 +6,7 @@
 /*   By: junyojeo <junyojeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 03:50:59 by marvin            #+#    #+#             */
-/*   Updated: 2022/08/03 15:02:47 by junyojeo         ###   ########seoul.kr  */
+/*   Updated: 2022/11/24 00:39:28 by junyojeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;
-	t_list	*node;
+	t_list	*newhead;
 
-	node = NULL;
+	newhead = NULL;
+	new = NULL;
 	while (lst)
 	{
 		new = ft_lstnew(f(lst->content));
 		if (!new)
 		{
-			ft_lstclear(&node, del);
+			ft_lstclear(&newhead, del);
 			return ((void *)(0));
 		}
-		ft_lstadd_back(&node, new);
+		ft_lstadd_back(&newhead, new);
 		lst = lst->next;
 	}
-	new = NULL;
-	return (node);
+	return (newhead);
 }
