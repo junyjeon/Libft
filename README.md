@@ -25,7 +25,12 @@ C 표준 라이브러리의 기본 함수들을 재구현하여 이후 42 과정
 ### 개발 제약사항
 - 허용 함수: `malloc`, `free`, `write`
 - 모든 함수는 `ft_` 접두어 사용
-- Norminette 코딩 규칙 준수
+- [Norminette](https://github.com/42School/norminette) 코딩 규칙 준수
+  - 함수 당 25줄 제한
+  - 변수 선언은 함수 시작 부분
+  - 들여쓰기는 탭 사용
+  - 5개 이상의 매개변수 금지
+  - for, do...while, switch 등 금지
 - 정의되지 않은 동작 없어야 함
 - 메모리 누수 없어야 함
 
@@ -140,6 +145,14 @@ int main(void)
 2. 메모리 누수 확인
 3. 버퍼 오버플로우 방지
 4. Norminette 규칙 준수
+
+### Norminette 관련 주의사항
+- [Norminette 문서](https://github.com/42School/norminette/blob/master/pdf/en.norm.pdf) 참조
+- 주요 체크포인트:
+  1. 함수 길이 (25줄 제한)
+  2. 들여쓰기 (탭 사용)
+  3. 변수 선언 위치
+  4. 금지된 키워드 사용 여부
 
 ### 성능 최적화 팁
 1. 불필요한 메모리 할당 피하기
