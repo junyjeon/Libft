@@ -7,6 +7,7 @@
   [![42 Score](https://img.shields.io/badge/Score-125%2F100-success?style=for-the-badge&logo=42)](https://github.com/junyjeon/Libft)
   [![Norminette](https://img.shields.io/badge/Norminette-passing-brightgreen?style=for-the-badge)](https://github.com/42School/norminette)
   [![Last Commit](https://img.shields.io/github/last-commit/junyjeon/Libft?style=for-the-badge)](https://github.com/junyjeon/Libft/commits)
+  [![C](https://img.shields.io/badge/C-99-blue.svg?style=for-the-badge&logo=c)](https://github.com/junyjeon/Libft)
 </div>
 
 ## 📋 목차
